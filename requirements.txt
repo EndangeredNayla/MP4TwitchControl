@@ -1,5 +1,6 @@
 twitchio
 customtkinter
 tk
+pyinstaller
 git+https://github.com/EndangeredNayla/py-dolphin-memory-engine.git
 pyjson5
