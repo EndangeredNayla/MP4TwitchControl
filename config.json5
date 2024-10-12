@@ -1,0 +1,171 @@
+{
+    "token": "na831i8xqq75tgarg2sg9k7uf2leg3",
+    "channelName": "endangerednayla",
+    "rewards": [
+        {
+            // Add One Turn
+            "name": "Add One Turn",
+            "cost": 3000,
+            "maxPerStream": 5,
+            "maxPerUserPerStream": 1,
+            "maxPerStreamEnabled": "True",
+            "cooldown": 60,
+            "enabled": "True",
+            "imageSrc": "https://raw.githubusercontent.com/EndangeredNayla/MP4TwitchControl/refs/heads/master/icons/addOneTurn.png"
+        },
+        {
+            // Wipe P1 Items
+            "name": "Wipe P1 Items",
+            "cost": 6000,
+            "maxPerStream": 5,
+            "maxPerUserPerStream": 1,
+            "maxPerStreamEnabled": "True",
+            "cooldown": 60,
+            "enabled": "True",
+            "imageSrc": "https://raw.githubusercontent.com/EndangeredNayla/MP4TwitchControl/refs/heads/master/icons/wipeItems.png"
+        },
+        {
+            // Wipe P2 Items
+            "name": "Wipe P2 Items",
+            "cost": 6000,
+            "maxPerStream": 5,
+            "maxPerUserPerStream": 1,
+            "maxPerStreamEnabled": "True",
+            "cooldown": 60,
+            "enabled": "True",
+            "imageSrc": "https://raw.githubusercontent.com/EndangeredNayla/MP4TwitchControl/refs/heads/master/icons/wipeItems.png"
+        },
+        {
+            // Wipe P3 Items
+            "name": "Wipe P3 Items",
+            "cost": 6000,
+            "maxPerStream": 5,
+            "maxPerUserPerStream": 1,
+            "maxPerStreamEnabled": "True",
+            "cooldown": 60,
+            "enabled": "True",
+            "imageSrc": "https://raw.githubusercontent.com/EndangeredNayla/MP4TwitchControl/refs/heads/master/icons/wipeItems.png"
+        },
+        {
+            // Wipe P4 Items
+            "name": "Wipe P4 Items",
+            "cost": 6000,
+            "maxPerStream": 5,
+            "maxPerUserPerStream": 1,
+            "maxPerStreamEnabled": "True",
+            "cooldown": 60,
+            "enabled": "True",
+            "imageSrc": "https://raw.githubusercontent.com/EndangeredNayla/MP4TwitchControl/refs/heads/master/icons/wipeItems.png"
+        },
+        {
+            // -30 Coins P1
+            "name": "-30 Coins P1",
+            "cost": 6000,
+            "maxPerStream": 5,
+            "maxPerUserPerStream": 1,
+            "maxPerStreamEnabled": "True",
+            "cooldown": 60,
+            "enabled": "True",
+            "imageSrc": "https://raw.githubusercontent.com/EndangeredNayla/MP4TwitchControl/refs/heads/master/icons/negativeCoins.png"
+        },
+        {
+            // -30 Coins P2
+            "name": "-30 Coins P2",
+            "cost": 6000,
+            "maxPerStream": 5,
+            "maxPerUserPerStream": 1,
+            "maxPerStreamEnabled": "True",
+            "cooldown": 60,
+            "enabled": "True",
+            "imageSrc": "https://raw.githubusercontent.com/EndangeredNayla/MP4TwitchControl/refs/heads/master/icons/negativeCoins.png"
+        },
+        {
+            // -30 Coins P3
+            "name": "-30 Coins P3",
+            "cost": 6000,
+            "maxPerStream": 5,
+            "maxPerUserPerStream": 1,
+            "maxPerStreamEnabled": "True",
+            "cooldown": 60,
+            "enabled": "True",
+            "imageSrc": "https://raw.githubusercontent.com/EndangeredNayla/MP4TwitchControl/refs/heads/master/icons/negativeCoins.png"
+        },
+        {
+            // -30 Coins P4
+            "name": "-30 Coins P4",
+            "cost": 6000,
+            "maxPerStream": 5,
+            "maxPerUserPerStream": 1,
+            "maxPerStreamEnabled": "True",
+            "cooldown": 60,
+            "enabled": "True",
+            "imageSrc": "https://raw.githubusercontent.com/EndangeredNayla/MP4TwitchControl/refs/heads/master/icons/negativeCoins.png"
+        },
+        {
+            // -1 Star P1
+            "name": "-1 Star P1",
+            "cost": 10000,
+            "maxPerStream": 5,
+            "maxPerUserPerStream": 1,
+            "maxPerStreamEnabled": "True",
+            "cooldown": 60,
+            "enabled": "True",
+            "imageSrc": "https://raw.githubusercontent.com/EndangeredNayla/MP4TwitchControl/refs/heads/master/icons/negativeStar.png"
+        },
+        {
+            // -1 Star P2
+            "name": "-1 Star P2",
+            "cost": 10000,
+            "maxPerStream": 5,
+            "maxPerUserPerStream": 1,
+            "maxPerStreamEnabled": "True",
+            "cooldown": 60,
+            "enabled": "True",
+            "imageSrc": "https://raw.githubusercontent.com/EndangeredNayla/MP4TwitchControl/refs/heads/master/icons/negativeStar.png"
+        },
+        {
+            // -1 Star P3
+            "name": "-1 Star P3",
+            "cost": 10000,
+            "maxPerStream": 5,
+            "maxPerUserPerStream": 1,
+            "maxPerStreamEnabled": "True",
+            "cooldown": 60,
+            "enabled": "True",
+            "imageSrc": "https://raw.githubusercontent.com/EndangeredNayla/MP4TwitchControl/refs/heads/master/icons/negativeStar.png"
+        },
+        {
+            // -1 Star P4
+            "name": "-1 Star P4",
+            "cost": 10000,
+            "maxPerStream": 5,
+            "maxPerUserPerStream": 1,
+            "maxPerStreamEnabled": "True",
+            "cooldown": 60,
+            "enabled": "True",
+            "imageSrc": "https://raw.githubusercontent.com/EndangeredNayla/MP4TwitchControl/refs/heads/master/icons/negativeStar.png"
+        },
+                {
+            // Coin Revolution
+            "name": "Coin Revolution",
+            "cost": 15000,
+            "maxPerStream": 5,
+            "maxPerUserPerStream": 1,
+            "maxPerStreamEnabled": "True",
+            "cooldown": 60,
+            "enabled": "True",
+            "imageSrc": "https://raw.githubusercontent.com/EndangeredNayla/MP4TwitchControl/refs/heads/master/icons/coinRev.png"
+        },
+        {
+            // Star Revolution
+            "name": "Star Revolution",
+            "cost": 30000,
+            "maxPerStream": 5,
+            "maxPerUserPerStream": 1,
+            "maxPerStreamEnabled": "True",
+            "cooldown": 60,
+            "enabled": "True",
+            "imageSrc": "https://raw.githubusercontent.com/EndangeredNayla/MP4TwitchControl/refs/heads/master/icons/starRev.png"
+        },
+    ]
+}
