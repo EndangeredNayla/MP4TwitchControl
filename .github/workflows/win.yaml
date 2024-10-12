@@ -1,0 +1,25 @@
+name: Windows CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-win32:
+    name: "Windows Build"
+    runs-on: windows-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install PIP Modules
+      run: python -m pip install -r requirements.txt
+
+    - name: Build Project
+      run: pyinstaller --onefile .\main.py --name="Mario Party 4 - Twitch Control"
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: MP4TwitchControl-win32
+        path: D:\a\MP4TwitchControl\MP4TwitchControl\dist
