@@ -4,3 +4,4 @@ tk
 pyinstaller
 git+https://github.com/EndangeredNayla/py-dolphin-memory-engine.git
 pyjson5
+requests
