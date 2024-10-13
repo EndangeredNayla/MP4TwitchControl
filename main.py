@@ -160,10 +160,10 @@ class App(commands.Bot):
                               int.from_bytes(coinP3, byteorder='big') + 
                               int.from_bytes(coinP4, byteorder='big'))
                 revParsed = totalCoins // 4
-                dolphin_memory_engine.write_bytes(0x8018FC34, revParsed.to_bytes(2, byteorder='big'))
-                dolphin_memory_engine.write_bytes(0x8018FC64, revParsed.to_bytes(2, byteorder='big'))
-                dolphin_memory_engine.write_bytes(0x8018FC94, revParsed.to_bytes(2, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FC54, revParsed.to_bytes(2, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FC84, revParsed.to_bytes(2, byteorder='big'))
                 dolphin_memory_engine.write_bytes(0x8018FCB4, revParsed.to_bytes(2, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FCE4, revParsed.to_bytes(2, byteorder='big'))
                 print(f'New Coins after Revolution: {revParsed}')  # Log new coin value
 
             if event.reward.title == self.config["rewards"][14]["name"]:  # Star Revolution
