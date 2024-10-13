@@ -29,6 +29,11 @@ class App(commands.Bot):
                 print('Triggering: Add One Turn')  # Log action
                 maxTurns = dolphin_memory_engine.read_bytes(0x8018FCFD, 1)
                 maxTurnsPlusOne = int.from_bytes(maxTurns, byteorder='big') + 1
+                
+                # Cap max turns at 50
+                if maxTurnsPlusOne > 50:
+                    maxTurnsPlusOne = 50
+                
                 dolphin_memory_engine.write_bytes(0x8018FCFD, maxTurnsPlusOne.to_bytes(1, byteorder='big'))
                 print(f'Max Turns increased to: {maxTurnsPlusOne}')  # Log new max turns
 
