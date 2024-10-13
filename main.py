@@ -159,7 +159,7 @@ class App(commands.Bot):
                               int.from_bytes(coinP2, byteorder='big') + 
                               int.from_bytes(coinP3, byteorder='big') + 
                               int.from_bytes(coinP4, byteorder='big'))
-                revParsed = totalCoins // 4
+                revParsed = math.floor(totalCoins / 4)
                 dolphin_memory_engine.write_bytes(0x8018FC54, revParsed.to_bytes(2, byteorder='big'))
                 dolphin_memory_engine.write_bytes(0x8018FC84, revParsed.to_bytes(2, byteorder='big'))
                 dolphin_memory_engine.write_bytes(0x8018FCB4, revParsed.to_bytes(2, byteorder='big'))
@@ -176,11 +176,11 @@ class App(commands.Bot):
                               int.from_bytes(coinP2, byteorder='big') + 
                               int.from_bytes(coinP3, byteorder='big') + 
                               int.from_bytes(coinP4, byteorder='big'))
-                revParsed = totalCoins // 4
-                dolphin_memory_engine.write_bytes(0x8018FC44, revParsed.to_bytes(2, byteorder='big'))
-                dolphin_memory_engine.write_bytes(0x8018FC74, revParsed.to_bytes(2, byteorder='big'))
-                dolphin_memory_engine.write_bytes(0x8018FCA4, revParsed.to_bytes(2, byteorder='big'))
-                dolphin_memory_engine.write_bytes(0x8018FCD4, revParsed.to_bytes(2, byteorder='big'))
+                revParsed = math.floor(totalCoins / 4)
+                dolphin_memory_engine.write_bytes(0x8018FC64, revParsed.to_bytes(2, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FC94, revParsed.to_bytes(2, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FCC4, revParsed.to_bytes(2, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FCF4, revParsed.to_bytes(2, byteorder='big'))
                 print(f'New Stars after Revolution: {revParsed}')  # Log new star value
     
     async def subscribe_to_topics(self, client):
