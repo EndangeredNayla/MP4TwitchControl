@@ -39,27 +39,27 @@ class App(commands.Bot):
 
             if event.reward.title == self.config["rewards"][1]["name"]:  # Wipe P1 Items
                 print('Triggering: Wipe P1 Items')  # Log action
-                dolphin_memory_engine.write_bytes(0x8018FC3D, (255).from_bytes(1, byteorder='big'))
-                dolphin_memory_engine.write_bytes(0x8018FC3E, (255).from_bytes(1, byteorder='big'))
-                dolphin_memory_engine.write_bytes(0x8018FC3F, (255).from_bytes(1, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FC3D, (255).to_bytes(1, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FC3E, (255).to_bytes(1, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FC3F, (255).to_bytes(1, byteorder='big'))
 
             if event.reward.title == self.config["rewards"][2]["name"]:  # Wipe P2 Items
                 print('Triggering: Wipe P2 Items')  # Log action
-                dolphin_memory_engine.write_bytes(0x8018FC6D, (255).from_bytes(1, byteorder='big'))
-                dolphin_memory_engine.write_bytes(0x8018FC6E, (255).from_bytes(1, byteorder='big'))
-                dolphin_memory_engine.write_bytes(0x8018FC6F, (255).from_bytes(1, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FC6D, (255).to_bytes(1, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FC6E, (255).to_bytes(1, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FC6F, (255).to_bytes(1, byteorder='big'))
 
             if event.reward.title == self.config["rewards"][3]["name"]:  # Wipe P3 Items
                 print('Triggering: Wipe P3 Items')  # Log action
-                dolphin_memory_engine.write_bytes(0x8018FC9D, (255).from_bytes(1, byteorder='big'))
-                dolphin_memory_engine.write_bytes(0x8018FC9E, (255).from_bytes(1, byteorder='big'))
-                dolphin_memory_engine.write_bytes(0x8018FC9F, (255).from_bytes(1, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FC9D, (255).to_bytes(1, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FC9E, (255).to_bytes(1, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FC9F, (255).to_bytes(1, byteorder='big'))
 
             if event.reward.title == self.config["rewards"][4]["name"]:  # Wipe P4 Items
                 print('Triggering: Wipe P4 Items')  # Log action
-                dolphin_memory_engine.write_bytes(0x8018FCCD, (255).from_bytes(1, byteorder='big'))
-                dolphin_memory_engine.write_bytes(0x8018FCCE, (255).from_bytes(1, byteorder='big'))
-                dolphin_memory_engine.write_bytes(0x8018FCCF, (255).from_bytes(1, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FCCD, (255).to_bytes(1, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FCCE, (255).to_bytes(1, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FCCF, (255).to_bytes(1, byteorder='big'))
 
             if event.reward.title == self.config["rewards"][5]["name"]:  # -30 Coins P1
                 print('Triggering: -30 Coins P1')  # Log action
@@ -155,10 +155,10 @@ class App(commands.Bot):
                 coinP2 = dolphin_memory_engine.read_bytes(0x8018FC64, 2)
                 coinP3 = dolphin_memory_engine.read_bytes(0x8018FC94, 2)
                 coinP4 = dolphin_memory_engine.read_bytes(0x8018FCC4, 2)
-                totalCoins = (coinP1.from_bytes(2, byteorder='big') +
-                              coinP2.from_bytes(2, byteorder='big') + 
-                              coinP3.from_bytes(2, byteorder='big') + 
-                              coinP4.from_bytes(2, byteorder='big'))
+                totalCoins = (int.from_bytes(coinP1, byteorder='big') +
+                              int.from_bytes(coinP2, byteorder='big') + 
+                              int.from_bytes(coinP3, byteorder='big') + 
+                              int.from_bytes(coinP4, byteorder='big'))
                 revParsed = totalCoins // 4
                 dolphin_memory_engine.write_bytes(0x8018FC34, revParsed.to_bytes(2, byteorder='big'))
                 dolphin_memory_engine.write_bytes(0x8018FC64, revParsed.to_bytes(2, byteorder='big'))
@@ -172,10 +172,10 @@ class App(commands.Bot):
                 coinP2 = dolphin_memory_engine.read_bytes(0x8018FC74, 2)
                 coinP3 = dolphin_memory_engine.read_bytes(0x8018FCA4, 2)
                 coinP4 = dolphin_memory_engine.read_bytes(0x8018FCD4, 2)
-                totalCoins = (coinP1.from_bytes(2, byteorder='big') +
-                              coinP2.from_bytes(2, byteorder='big') + 
-                              coinP3.from_bytes(2, byteorder='big') + 
-                              coinP4.from_bytes(2, byteorder='big'))
+                totalCoins = (int.from_bytes(coinP1, byteorder='big') +
+                              int.from_bytes(coinP2, byteorder='big') + 
+                              int.from_bytes(coinP3, byteorder='big') + 
+                              int.from_bytes(coinP4, byteorder='big'))
                 revParsed = totalCoins // 4
                 dolphin_memory_engine.write_bytes(0x8018FC44, revParsed.to_bytes(2, byteorder='big'))
                 dolphin_memory_engine.write_bytes(0x8018FC74, revParsed.to_bytes(2, byteorder='big'))
