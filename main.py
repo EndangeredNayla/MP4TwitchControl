@@ -151,10 +151,10 @@ class App(commands.Bot):
 
             if event.reward.title == self.config["rewards"][13]["name"]:  # Coin Revolution
                 print('Triggering: Coin Revolution')  # Log action
-                coinP1 = dolphin_memory_engine.read_bytes(0x8018FC34, 2)
-                coinP2 = dolphin_memory_engine.read_bytes(0x8018FC64, 2)
-                coinP3 = dolphin_memory_engine.read_bytes(0x8018FC94, 2)
-                coinP4 = dolphin_memory_engine.read_bytes(0x8018FCC4, 2)
+                coinP1 = dolphin_memory_engine.read_bytes(0x8018FC54, 2)
+                coinP2 = dolphin_memory_engine.read_bytes(0x8018FC84, 2)
+                coinP3 = dolphin_memory_engine.read_bytes(0x8018FCB4, 2)
+                coinP4 = dolphin_memory_engine.read_bytes(0x8018FCE4, 2)
                 totalCoins = (int.from_bytes(coinP1, byteorder='big') +
                               int.from_bytes(coinP2, byteorder='big') + 
                               int.from_bytes(coinP3, byteorder='big') + 
