@@ -1,5 +1,6 @@
 import asyncio
 from twitchio.ext import commands, pubsub
+import twitchio
 import pyjson5
 import dolphin_memory_engine
 import sys
@@ -9,7 +10,8 @@ import math
 class App(commands.Bot):
     def __init__(self, token, initial_channels):
         super().__init__(token="oauth:" + token, initial_channels=initial_channels, prefix="!")
-        self.pubsub = pubsub.PubSubPool(self)
+        client = twitchio.Client(token=token)
+        self.pubsub = pubsub.PubSubPool(client)
 
         # Load configuration
         with open('config.json5', 'r') as config_file:
