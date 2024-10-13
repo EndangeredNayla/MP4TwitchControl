@@ -34,75 +34,115 @@ class App(commands.Bot):
 
             if event.reward.title == self.config["rewards"][1]["name"]:  # Wipe P1 Items
                 print('Triggering: Wipe P1 Items')  # Log action
-                dolphin_memory_engine.write_bytes(0x8018FC3D, 0xFFFFFF)
+                dolphin_memory_engine.write_bytes(0x8018FC3D, int.from_bytes(255, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FC3E, int.from_bytes(255, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FC3F, int.from_bytes(255, byteorder='big'))
 
             if event.reward.title == self.config["rewards"][2]["name"]:  # Wipe P2 Items
                 print('Triggering: Wipe P2 Items')  # Log action
-                dolphin_memory_engine.write_bytes(0x8018FC6D, 0xFFFFFF)
+                dolphin_memory_engine.write_bytes(0x8018FC6D, int.from_bytes(255, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FC6E, int.from_bytes(255, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FC6F, int.from_bytes(255, byteorder='big'))
 
             if event.reward.title == self.config["rewards"][3]["name"]:  # Wipe P3 Items
                 print('Triggering: Wipe P3 Items')  # Log action
-                dolphin_memory_engine.write_bytes(0x8018FC9D, 0xFFFFFF)
+                dolphin_memory_engine.write_bytes(0x8018FC9D, int.from_bytes(255, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FC9E, int.from_bytes(255, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FC9F, int.from_bytes(255, byteorder='big'))
 
             if event.reward.title == self.config["rewards"][4]["name"]:  # Wipe P4 Items
                 print('Triggering: Wipe P4 Items')  # Log action
-                dolphin_memory_engine.write_bytes(0x8018FCCD, 0xFFFFFF)
+                dolphin_memory_engine.write_bytes(0x8018FCCD, int.from_bytes(255, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FCCE, int.from_bytes(255, byteorder='big'))
+                dolphin_memory_engine.write_bytes(0x8018FCCF, int.from_bytes(255, byteorder='big'))
 
             if event.reward.title == self.config["rewards"][5]["name"]:  # -30 Coins P1
                 print('Triggering: -30 Coins P1')  # Log action
                 coinP1 = dolphin_memory_engine.read_bytes(0x8018FC54, 2)
-                thirtyLostCoinsP1 = int.from_bytes(coinP1, byteorder='big') - 30
+                currentCoinsP1 = int.from_bytes(coinP1, byteorder='big')
+                if currentCoinsP1 < 30:
+                    thirtyLostCoinsP1 = 0
+                else:
+                    thirtyLostCoinsP1 = currentCoinsP1 - 30
                 dolphin_memory_engine.write_bytes(0x8018FC54, thirtyLostCoinsP1.to_bytes(2, byteorder='big'))
                 print(f'New Coins P1: {thirtyLostCoinsP1}')  # Log new coin value
 
             if event.reward.title == self.config["rewards"][6]["name"]:  # -30 Coins P2
                 print('Triggering: -30 Coins P2')  # Log action
                 coinP2 = dolphin_memory_engine.read_bytes(0x8018FC84, 2)
-                thirtyLostCoinsP2 = int.from_bytes(coinP2, byteorder='big') - 30
-                dolphin_memory_engine.write_bytes(0x8018FC54, thirtyLostCoinsP2.to_bytes(2, byteorder='big'))
+                currentCoinsP2 = int.from_bytes(coinP2, byteorder='big')
+                if currentCoinsP2 < 30:
+                    thirtyLostCoinsP2 = 0
+                else:
+                    thirtyLostCoinsP2 = currentCoinsP2 - 30
+                dolphin_memory_engine.write_bytes(0x8018FC84, thirtyLostCoinsP2.to_bytes(2, byteorder='big'))
                 print(f'New Coins P2: {thirtyLostCoinsP2}')  # Log new coin value
 
             if event.reward.title == self.config["rewards"][7]["name"]:  # -30 Coins P3
                 print('Triggering: -30 Coins P3')  # Log action
                 coinP3 = dolphin_memory_engine.read_bytes(0x8018FCB4, 2)
-                thirtyLostCoinsP3 = int.from_bytes(coinP3, byteorder='big') - 30
-                dolphin_memory_engine.write_bytes(0x8018FC54, thirtyLostCoinsP3.to_bytes(2, byteorder='big'))
+                currentCoinsP3 = int.from_bytes(coinP3, byteorder='big')
+                if currentCoinsP3 < 30:
+                    thirtyLostCoinsP3 = 0
+                else:
+                    thirtyLostCoinsP3 = currentCoinsP3 - 30
+                dolphin_memory_engine.write_bytes(0x8018FCB4, thirtyLostCoinsP3.to_bytes(2, byteorder='big'))
                 print(f'New Coins P3: {thirtyLostCoinsP3}')  # Log new coin value
 
             if event.reward.title == self.config["rewards"][8]["name"]:  # -30 Coins P4
                 print('Triggering: -30 Coins P4')  # Log action
-                coinP4 = dolphin_memory_engine.read_bytes(0x8018FC4, 2)
-                thirtyLostCoinsP4 = int.from_bytes(coinP4, byteorder='big') - 30
-                dolphin_memory_engine.write_bytes(0x8018FC54, thirtyLostCoinsP4.to_bytes(2, byteorder='big'))
+                coinP4 = dolphin_memory_engine.read_bytes(0x8018FCE4, 2)
+                currentCoinsP4 = int.from_bytes(coinP4, byteorder='big')
+                if currentCoinsP4 < 30:
+                    thirtyLostCoinsP4 = 0
+                else:
+                    thirtyLostCoinsP4 = currentCoinsP4 - 30
+                dolphin_memory_engine.write_bytes(0x8018FCE4, thirtyLostCoinsP4.to_bytes(2, byteorder='big'))
                 print(f'New Coins P4: {thirtyLostCoinsP4}')  # Log new coin value
 
             if event.reward.title == self.config["rewards"][9]["name"]:  # -1 Star P1
                 print('Triggering: -1 Star P1')  # Log action
                 coinP1 = dolphin_memory_engine.read_bytes(0x8018FC44, 2)
-                thirtyLostCoinsP1 = int.from_bytes(coinP1, byteorder='big') - 1
-                dolphin_memory_engine.write_bytes(0x8018FC54, thirtyLostCoinsP1.to_bytes(2, byteorder='big'))
-                print(f'New Coins P1: {thirtyLostCoinsP1}')  # Log new coin value
+                thirtyLostCoinsP1 = int.from_bytes(coinP1, byteorder='big')
+                if thirtyLostCoinsP1 < 1:
+                    thirtyLostCoinsP1 = 0
+                else:
+                    thirtyLostCoinsP1 -= 1
+                dolphin_memory_engine.write_bytes(0x8018FC44, thirtyLostCoinsP1.to_bytes(2, byteorder='big'))
+                print(f'New Stars P1: {thirtyLostCoinsP1}')  # Log new star value
 
             if event.reward.title == self.config["rewards"][10]["name"]:  # -1 Star P2
                 print('Triggering: -1 Star P2')  # Log action
                 coinP2 = dolphin_memory_engine.read_bytes(0x8018FC74, 2)
-                thirtyLostCoinsP2 = int.from_bytes(coinP2, byteorder='big') - 1
-                dolphin_memory_engine.write_bytes(0x8018FC54, thirtyLostCoinsP2.to_bytes(2, byteorder='big'))
-                print(f'New Coins P2: {thirtyLostCoinsP2}')  # Log new coin value
+                thirtyLostCoinsP2 = int.from_bytes(coinP2, byteorder='big')
+                if thirtyLostCoinsP2 < 1:
+                    thirtyLostCoinsP2 = 0
+                else:
+                    thirtyLostCoinsP2 -= 1
+                dolphin_memory_engine.write_bytes(0x8018FC74, thirtyLostCoinsP2.to_bytes(2, byteorder='big'))
+                print(f'New Stars P2: {thirtyLostCoinsP2}')  # Log new star value
 
             if event.reward.title == self.config["rewards"][11]["name"]:  # -1 Star P3
                 print('Triggering: -1 Star P3')  # Log action
                 coinP3 = dolphin_memory_engine.read_bytes(0x8018FCA4, 2)
-                thirtyLostCoinsP3 = int.from_bytes(coinP3, byteorder='big') - 1
-                dolphin_memory_engine.write_bytes(0x8018FC54, thirtyLostCoinsP3.to_bytes(2, byteorder='big'))
-                print(f'New Coins P3: {thirtyLostCoinsP3}')  # Log new coin value
+                thirtyLostCoinsP3 = int.from_bytes(coinP3, byteorder='big')
+                if thirtyLostCoinsP3 < 1:
+                    thirtyLostCoinsP3 = 0
+                else:
+                    thirtyLostCoinsP3 -= 1
+                dolphin_memory_engine.write_bytes(0x8018FCA4, thirtyLostCoinsP3.to_bytes(2, byteorder='big'))
+                print(f'New Stars P3: {thirtyLostCoinsP3}')  # Log new star value
 
             if event.reward.title == self.config["rewards"][12]["name"]:  # -1 Star P4
                 print('Triggering: -1 Star P4')  # Log action
                 coinP4 = dolphin_memory_engine.read_bytes(0x8018FCD4, 2)
-                thirtyLostCoinsP4 = int.from_bytes(coinP4, byteorder='big') - 1
-                dolphin_memory_engine.write_bytes(0x8018FC54, thirtyLostCoinsP4.to_bytes(2, byteorder='big'))
-                print(f'New Coins P4: {thirtyLostCoinsP4}')  # Log new coin value
+                thirtyLostCoinsP4 = int.from_bytes(coinP4, byteorder='big')
+                if thirtyLostCoinsP4 < 1:
+                    thirtyLostCoinsP4 = 0
+                else:
+                    thirtyLostCoinsP4 -= 1
+                dolphin_memory_engine.write_bytes(0x8018FCD4, thirtyLostCoinsP4.to_bytes(2, byteorder='big'))
+                print(f'New Stars P4: {thirtyLostCoinsP4}')  # Log new star value
 
             if event.reward.title == self.config["rewards"][13]["name"]:  # Coin Revolution
                 print('Triggering: Coin Revolution')  # Log action
@@ -110,10 +150,10 @@ class App(commands.Bot):
                 coinP2 = dolphin_memory_engine.read_bytes(0x8018FC64, 2)
                 coinP3 = dolphin_memory_engine.read_bytes(0x8018FC94, 2)
                 coinP4 = dolphin_memory_engine.read_bytes(0x8018FCC4, 2)
-                revParsed = math.floor(int.from_bytes(coinP1, byteorder='big') +
+                revParsed = math.floor([int.from_bytes(coinP1, byteorder='big') +
                                          int.from_bytes(coinP2, byteorder='big') + 
                                          int.from_bytes(coinP3, byteorder='big') + 
-                                         int.from_bytes(coinP4, byteorder='big') // 4)
+                                         int.from_bytes(coinP4, byteorder='big')] // 4)
                 dolphin_memory_engine.write_bytes(0x8018FC34, revParsed.to_bytes(2, byteorder='big'))
                 dolphin_memory_engine.write_bytes(0x8018FC64, revParsed.to_bytes(2, byteorder='big'))
                 dolphin_memory_engine.write_bytes(0x8018FC94, revParsed.to_bytes(2, byteorder='big'))
@@ -126,10 +166,10 @@ class App(commands.Bot):
                 coinP2 = dolphin_memory_engine.read_bytes(0x8018FC74, 2)
                 coinP3 = dolphin_memory_engine.read_bytes(0x8018FCA4, 2)
                 coinP4 = dolphin_memory_engine.read_bytes(0x8018FCD4, 2)
-                revParsed = math.floor(int.from_bytes(coinP1, byteorder='big') +
+                revParsed = math.floor([int.from_bytes(coinP1, byteorder='big') +
                                          int.from_bytes(coinP2, byteorder='big') + 
                                          int.from_bytes(coinP3, byteorder='big') + 
-                                         int.from_bytes(coinP4, byteorder='big') // 4)
+                                         int.from_bytes(coinP4, byteorder='big')] // 4)
                 dolphin_memory_engine.write_bytes(0x8018FC44, revParsed.to_bytes(2, byteorder='big'))
                 dolphin_memory_engine.write_bytes(0x8018FC74, revParsed.to_bytes(2, byteorder='big'))
                 dolphin_memory_engine.write_bytes(0x8018FCA4, revParsed.to_bytes(2, byteorder='big'))
