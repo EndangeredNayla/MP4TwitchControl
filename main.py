@@ -20,9 +20,14 @@ class App(commands.Bot):
         # Register events
         self.register_events()
         dolphin_memory_engine.hook()
+    
+    async def subscribe_to_topics(self):
+        topics = [
+            pubsub.channel_points(self.config["token"])[int(get_broadcaster_id(self.config["channelName"], self.config["token"]))],
+            pubsub.bits(self.config["token"])[int(get_broadcaster_id(self.config["channelName"], self.config["token"]))]
+        ]
+        await self.client.pubsub.subscribe_topics(topics)
 
-        topics = [pubsub.channel_points(self.config["token"])[get_broadcaster_id(self.config["channelName"], self.config["token"])], pubsub.bits(self.config["token"])[get_broadcaster_id(self.config["channelName"], self.config["token"])]]
-        self.client.pubsub.subscribe_topics(topics)
     
     def register_events(self):
         @self.event()
@@ -42,6 +47,7 @@ class App(commands.Bot):
                             reward["maxPerStreamEnabled"],
                             reward["imageSrc"]
                         )
+            await self.subscribe_to_topics()
 
         @self.event()
         async def event_pubsub_bits(event: pubsub.PubSubBitsMessage):
@@ -172,4 +178,4 @@ if __name__ == "__main__":
         config = pyjson5.load(config_file)
     
     app = App(token=config["token"], initial_channels=[config["channelName"]])
-    app.run()p
+    app.run()
