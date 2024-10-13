@@ -10,8 +10,8 @@ import math
 class App(commands.Bot):
     def __init__(self, token, initial_channels):
         super().__init__(token="oauth:" + token, initial_channels=initial_channels, prefix="!")
-        client = twitchio.Client(token=token)
-        client.pubsub = pubsub.PubSubPool(client)
+        self.client = twitchio.Client(token=token)
+        self.client.pubsub = pubsub.PubSubPool(self.client)
 
         # Load configuration
         with open('config.json5', 'r') as config_file:
@@ -39,6 +39,11 @@ class App(commands.Bot):
                             reward["maxPerStreamEnabled"],
                             reward["imageSrc"]
                         )
+
+        @self.event()
+        async def event_pubsub_bits(event: pubsub.PubSubBitsMessage):
+            print(f"Bits event: {event}")  # Log bits event
+            # do stuff on bit redemptions
 
         @self.event()
         async def event_pubsub_channel_points(event: pubsub.PubSubChannelPointsMessage):
@@ -154,7 +159,6 @@ class App(commands.Bot):
                 dolphin_memory_engine.write_bytes(0x8018FCA4, revParsed.to_bytes(2, byteorder='big'))
                 dolphin_memory_engine.write_bytes(0x8018FCD4, revParsed.to_bytes(2, byteorder='big'))
                 print(f'New Stars after Revolution: {revParsed}')  # Log new star value
-                
 
     @commands.command(name='hello')
     async def hello_command(self, ctx):
