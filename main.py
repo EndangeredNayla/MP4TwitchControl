@@ -11,7 +11,7 @@ class App(commands.Bot):
     def __init__(self, token, initial_channels):
         super().__init__(token="oauth:" + token, initial_channels=initial_channels, prefix="!")
         client = twitchio.Client(token=token)
-        self.pubsub = pubsub.PubSubPool(client)
+        client.pubsub = pubsub.PubSubPool(client)
 
         # Load configuration
         with open('config.json5', 'r') as config_file:
@@ -19,7 +19,8 @@ class App(commands.Bot):
 
         # Register events
         self.register_events()
-
+        dolphin_memory_engine.hook()
+    
     def register_events(self):
         @self.event()
         async def event_ready():
