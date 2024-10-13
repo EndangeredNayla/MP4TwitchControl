@@ -4,7 +4,7 @@ import twitchio
 import pyjson5
 import dolphin_memory_engine
 import sys
-from functions import create_channel_point_reward
+from functions import create_channel_point_reward, get_broadcaster_id
 import math
 
 class App(commands.Bot):
@@ -20,6 +20,9 @@ class App(commands.Bot):
         # Register events
         self.register_events()
         dolphin_memory_engine.hook()
+
+        topics = [pubsub.channel_points(self.config["token"])[get_broadcaster_id(self.config["channelName"], self.config["token"])], pubsub.bits(self.config["token"])[get_broadcaster_id(self.config["channelName"], self.config["token"])]]
+        self.client.pubsub.subscribe_topics(topics)
     
     def register_events(self):
         @self.event()
@@ -169,4 +172,4 @@ if __name__ == "__main__":
         config = pyjson5.load(config_file)
     
     app = App(token=config["token"], initial_channels=[config["channelName"]])
-    app.run()
+    app.run()p
